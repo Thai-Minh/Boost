@@ -41,6 +41,7 @@ import butterknife.ButterKnife;
 
 public class BaseActivity extends AppCompatActivity {
 
+    // comment comment 1
     private String sTitle;
     private LinearLayout.LayoutParams layoutParams;
     private LinearLayout.LayoutParams params300x250;
