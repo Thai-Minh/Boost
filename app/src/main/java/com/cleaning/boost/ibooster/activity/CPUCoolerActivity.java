@@ -47,6 +47,8 @@ import butterknife.OnClick;
 
 public class CPUCoolerActivity extends BaseActivity {
 
+
+    //comment CPU Activity
     private final CPUCoolerActivity mActivity = this;
 
     @BindView(R.id.textViewTemperatureC)
