@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryLight">#CC56BFAE</color>
+    <color name="colorPrimary">#56BFAE</color>
+    <color name="colorPrimaryDark">#328577</color>
+    <color name="colorAccent">#FF5722</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="black_overlay_11">#11000000</color>
+    <color name="white_overlay">#99ffffff</color>
+    <color name="yellow_overlay">#FF9800</color>
+    <color name="yellow_overlay1">#88FF9800</color>
+    <color name="black_text">#222222</color>
+    <color name="colorPrimaryText">#02384B</color>
+    <color name="bg_blue">#3F82E0</color>
+    <color name="bg_boost_color">#051843</color>
+    <color name="bg_battery_saver">#44C365</color>
+
+    <color name="bg_gif_cooldown">#0071BC</color>
+    <color name="bg_gif_boost">#218ED1</color>
+    <color name="bg_gif_junk">#43B1BB</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#0099cc</color>
+    <color name="bg_screen2">@color/gmc_color_orange_700</color>
+    <color name="bg_screen3">#20d2bb</color>
+
+    <!-- dots active colors -->
+    <color name="dot_active">#99ffffff</color>
+    <!-- dots inactive colors -->
+    <color name="dot_inactive">#33000000</color>
+
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/spacing_8"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.HomeCoolerFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/viewMiddleFragment"
+            android:layout_width="@dimen/spacing_16"
+            android:layout_height="@dimen/spacing_6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTempCFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_4"
+            android:text="@string/temp_c"
+            android:textColor="@color/gmc_color_white_1000"
+            android:textSize="@dimen/font_overline"
+            app:layout_constraintEnd_toStartOf="@+id/viewMiddleFragment"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTemperatureCFragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/empty"
+            android:textColor="@color/gmc_color_white_1000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTempCFragment"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTemperatureFFragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/empty"
+            android:textColor="@color/gmc_color_yellow_300"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/viewMiddleFragment"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTempFFrament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_4"
+            android:text="@string/temp_f"
+            android:textColor="@color/gmc_color_yellow_300"
+            android:textSize="@dimen/font_overline"
+            app:layout_constraintStart_toEndOf="@+id/textViewTemperatureFFragment"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_10"
+            android:text="@string/cpu_temperature"
+            android:textColor="@color/gmc_color_white_1000"
+            android:textSize="@dimen/font_caption" />
+
+</LinearLayout>

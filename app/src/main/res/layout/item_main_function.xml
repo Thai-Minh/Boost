@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/btnFunction"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_16"
+        android:text="@string/empty"
+        android:textAllCaps="false"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorPrimaryText" />
+
+    <ImageView
+        android:id="@+id/imageViewTopOfFunction"
+        android:layout_width="@dimen/spacing_16"
+        android:layout_height="@dimen/spacing_16"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:layout_marginLeft="@dimen/spacing_12"
+        android:contentDescription="@string/empty"
+        android:visibility="gone"
+        android:src="@drawable/ic_warning_orange_24dp" />
+</FrameLayout>

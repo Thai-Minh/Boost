@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_rate_star"
+        android:icon="@drawable/ic_star_yellow_24dp"
+        android:title="@string/mnu_rate_star"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_policy"
+        android:icon="@drawable/ic_security_blue_24dp"
+        android:title="@string/mnu_policy"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_language"
+        android:icon="@drawable/ic_language_24dp"
+        android:title="@string/mnu_language"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:icon="@drawable/ic_info_blue_24dp"
+        android:title="@string/mnu_about"
+        app:showAsAction="never" />
+</menu>
+

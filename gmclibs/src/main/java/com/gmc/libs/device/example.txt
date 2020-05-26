@@ -1,0 +1,383 @@
+// check and show request permission
+{
+    public static boolean hasUsageStatsPermission(Context mActivity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            return true;
+
+        boolean granted;
+        AppOpsManager appOps = (AppOpsManager) mActivity.getSystemService(Context.APP_OPS_SERVICE);
+        if (appOps == null) {
+            return false;
+        }
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), mActivity.getPackageName());
+
+        if (mode == AppOpsManager.MODE_DEFAULT) {
+            granted = (mActivity.checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED);
+        } else {
+            granted = (mode == AppOpsManager.MODE_ALLOWED);
+        }
+        return granted;
+    }
+
+    public static void showUsageAccessSettingsPopup(Activity activity) {
+        // show alert() then open Usage Access Settings
+        AlertDialog dialog = new AlertDialog.Builder(activity).create();
+        dialog.setTitle("ACTION USAGE ACCESS SETTINGS");
+        dialog.setMessage("Please give permission to access tracking setting");
+        dialog.setButton(AlertDialog.BUTTON_POSITIVE, activity.getResources().getString(android.R.string.ok),
+                (dialog1, which) -> {
+					Uri uri = Uri.fromParts("package", activity.getApplicationInfo().packageName, null);
+                    Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS, uri);
+                    activity.startActivityForResult(intent, RC_ACTION_USAGE_ACCESS_SETTINGS);
+                    dialog1.dismiss();
+                });
+        dialog.setButton(AlertDialog.BUTTON_NEGATIVE, activity.getResources().getString(android.R.string.cancel),
+                (dialog12, which) -> {
+                    dialog12.dismiss();
+                    activity.finish();
+                });
+        dialog.show();
+    }
+}
+
+// Get cache info **************************************************
+{
+    private StorageCleanActivity mActivity = this;
+    private RecyclerView mRecyclerView;
+    private RecycleViewCacheAdapter cacheListAdapter;
+    private Button btnCleanCache;
+    private ScanApps taskScan;
+    private TextView textViewCacheFiles;
+    private TextView textViewSizeUnit;
+    private TextView textViewCalculatingMessage;
+
+    public static final int FETCH_PACKAGE_SIZE_COMPLETED = 100;
+    public static final int ALL_PACAGE_SIZE_COMPLETED = 200;
+    long packageSize = 0;
+    AppDetails cAppDetails;
+    public ArrayList<PackageInfoStruct> res;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_storage_clean);
+
+        initUI();
+
+        bindData();
+
+        initActions();
+
+    }
+
+    private void initUI() {
+        initToolbar(false, getResources().getString(R.string.junk_files));
+
+        textViewCacheFiles = findViewById(R.id.textViewCacheFiles);
+        textViewSizeUnit = findViewById(R.id.textViewSizeUnit);
+        textViewCalculatingMessage = findViewById(R.id.textViewCalculatingMessage);
+        textViewCalculatingMessage.setText(getResources().getString(R.string.empty));
+        mRecyclerView = findViewById(R.id.recyclerViewCacheFiles);
+        btnCleanCache = findViewById(R.id.btnCleanCache);
+
+    }
+
+    private void bindData() {
+        if (ActivityUtils.hasUsageStatsPermission(mActivity)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startScanning();
+            } else {
+                doGetPackageSize();
+            }
+        } else {
+            ActivityUtils.showUsageAccessSettingsPopup(mActivity);
+        }
+    }
+
+    private void initActions() {
+        btnCleanCache.setOnClickListener(view -> {
+
+        });
+    }
+
+    private void startScanning() {
+
+        Utils.log("startScanning");
+        showProgress(true);
+
+        taskScan = new ScanApps(getApplicationContext());
+
+        taskScan.setTaskScanListener(new OnTaskScanListener() {
+
+            boolean updated;
+
+            @Override
+            public void onScanStarted() {
+                initializeAdapter(new ArrayList<>());
+            }
+
+            @Override
+            public void onScanProgressUpdated(int current, int max, CacheItem cacheItem) {
+                if (updated) return;
+                if (cacheItem != null) {
+                    cacheListAdapter.addItem(cacheItem);
+                    cacheListAdapter.sort(RecycleViewCacheAdapter.CACHE_ITEM_SIZE_COMPARATOR);
+                    // fetch each package size
+                    packageSize = cacheListAdapter.getCacheSize();
+                    handle.sendEmptyMessage(FETCH_PACKAGE_SIZE_COMPLETED);
+                }
+
+                if (current != -1 && current == max && !updated) {
+                    updated = true;
+                    updateFinishUI(cacheListAdapter.getItemCount() > 0);
+                }
+            }
+
+            @Override
+            public void onScanCompleted(List<CacheItem> apps) {
+                new Handler().postDelayed(() -> {
+                    if (cacheListAdapter.getAllItems().size() == 0 && !updated) {
+                        updated = true;
+                        updateFinishUI(cacheListAdapter.getItemCount() > 0);
+                    }
+                }, 1000);
+            }
+        });
+
+        taskScan.execute();
+    }
+
+    private void updateFinishUI(boolean foundApps) {
+        if (foundApps) {
+            // fetch all package size completed
+            handle.sendEmptyMessage(ALL_PACAGE_SIZE_COMPLETED);
+        }
+    }
+
+    private void initializeAdapter(List<CacheItem> items) {
+        packageSize = 0;
+        cacheListAdapter = new RecycleViewCacheAdapter(mActivity, items);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, RecyclerView.VERTICAL, false));
+        mRecyclerView.setAdapter(cacheListAdapter);
+    }
+
+    private void showProgress(boolean show) {
+        textViewCalculatingMessage.setText(
+                show ? getResources().getString(R.string.calculating_cache_size)
+                        : getResources().getString(R.string.empty));
+    }
+
+    private Handler handle = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case FETCH_PACKAGE_SIZE_COMPLETED:
+                    // Update packageSize value
+                    String pkgSizeValue = Formatter.formatFileSizeSI(mActivity, packageSize);
+                    String[] arrPkgSizeValue = pkgSizeValue.split(" ");
+                    textViewCacheFiles.setText(arrPkgSizeValue[0]);
+                    textViewSizeUnit.setText(arrPkgSizeValue[1]);
+                    break;
+                case ALL_PACAGE_SIZE_COMPLETED:
+                    // dismiss calculating message
+                    showProgress(false);
+                    String pkgSizeValue1 = Formatter.formatFileSizeSI(mActivity, packageSize);
+                    String[] arrPkgSizeValue1 = pkgSizeValue1.split(" ");
+                    textViewCacheFiles.setText(arrPkgSizeValue1[0]);
+                    textViewSizeUnit.setText(arrPkgSizeValue1[1]);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        stopScanning();
+        super.onStop();
+    }
+
+    public void onDestroy() {
+        stopScanning();
+        super.onDestroy();
+    }
+
+    private void stopScanning() {
+        if (taskScan != null) {
+            taskScan.setTaskScanListener(null);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ActivityUtils.RC_ACTION_USAGE_ACCESS_SETTINGS) {
+            bindData();
+        }
+    }
+
+    // ********************************************************
+    private void doGetPackageSize() {
+        Utils.log("doGetPackageSize");
+        packageSize = 0;
+        showProgress(true);
+        initializeAdapter(new ArrayList<>());
+        /**
+         * You can also use async task
+         * */
+        new Thread(() -> getPackageSize()).start();
+    }
+
+    private void getPackageSize() {
+        cAppDetails = new AppDetails(this);
+        res = cAppDetails.getPackages();
+        if (res == null) {
+            handle.sendEmptyMessage(ALL_PACAGE_SIZE_COMPLETED);
+            return;
+        }
+
+        for (int m = 0; m < res.size(); m++) {
+            PackageManager pm = getPackageManager();
+            Method getPackageSizeInfo;
+            try {
+                getPackageSizeInfo = pm.getClass().getMethod(
+                        "getPackageSizeInfo", String.class,
+                        IPackageStatsObserver.class);
+                PackageInfoStruct pis = res.get(m);
+                getPackageSizeInfo.invoke(pm, pis.pname, new CachePackState(pis));
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+        handle.sendEmptyMessage(ALL_PACAGE_SIZE_COMPLETED);
+    }
+
+    private class CachePackState extends IPackageStatsObserver.Stub {
+
+        private PackageInfoStruct packageInfoStruct;
+
+        public CachePackState(PackageInfoStruct pi) {
+            packageInfoStruct = pi;
+        }
+
+        @Override
+        public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) {
+            CacheItem cacheItem = new CacheItem(packageInfoStruct.pname, packageInfoStruct.appname,
+                    packageInfoStruct.icon, pStats.cacheSize);
+            cacheListAdapter.addItem(cacheItem);
+            cacheListAdapter.sort(RecycleViewCacheAdapter.CACHE_ITEM_SIZE_COMPARATOR);
+            // fetch each package size
+            packageSize = cacheListAdapter.getCacheSize();
+
+            handle.sendEmptyMessage(FETCH_PACKAGE_SIZE_COMPLETED);
+        }
+
+    }
+}
+
+// Scan running apps **************************************************
+{
+    private void startScanning() {
+        taskScan = new ScanRunningApps(getApplicationContext());
+
+        taskScan.setTaskScanListener(new OnTaskScanRunningAppsListener() {
+
+            boolean updated;
+
+            @Override
+            public void onScanStarted() {
+                initializeAdapter(new ArrayList<>());
+            }
+
+            @Override
+            public void onScanProgressUpdated(int current, int max, RunningAppsServices runningApp) {
+                if (updated) return;
+                if (runningApp != null) {
+                    runningListAdapter.addItem(runningApp);
+                    runningListAdapter.sort(RecycleViewRunningAppsAdapter.RUNNING_APP_NAME_COMPARATOR);
+                }
+
+                if (current != -1 && current == max && !updated) {
+                    updated = true;
+                    updateFinishUI(runningListAdapter.getItemCount() > 0);
+                }
+            }
+
+            @Override
+            public void onScanCompleted(List<RunningAppsServices> apps) {
+                new Handler().postDelayed(() -> {
+                    if (runningListAdapter.getAllItems().size() == 0 && !updated) {
+                        updated = true;
+                        updateFinishUI(runningListAdapter.getItemCount() > 0);
+                    }
+                }, 2000);
+            }
+        });
+
+        taskScan.execute();
+    }
+
+    private void updateFinishUI(boolean foundApps) {
+        if (foundApps) {
+        } else {
+        }
+    }
+}
+
+// Get RAM info **************************************************
+{
+    private void runBindRamThread() {
+
+        isRunning = true;
+
+        new Thread() {
+            public void run() {
+                while (isRunning) {
+                    try {
+                        runOnUiThread(() -> getTotalRAMInfo());
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+    }
+
+    private void getTotalRAMInfo() {
+        long[] rams = PackageUtils.getRAMSize();
+        long used = rams[0] - rams[1];
+        float ramPercent = used * 100 / rams[0];
+        int process = Math.round(ramPercent);
+        if (process > 100) process = 100;
+        int free = 100 - process;
+
+        List<SliceValue> pieData = new ArrayList<>();
+        pieData.add(new SliceValue(process, Utils.getColor(mActivity, R.color.colorAccent)));
+        pieData.add(new SliceValue(free, Utils.getColor(mActivity, R.color.colorGreenLight)));
+        PieChartData pieChartData = new PieChartData(pieData);
+        pieChartData.setHasCenterCircle(true)
+                .setCenterText1("RAM").setCenterText1FontSize(18).setCenterText1Color(Utils.getColor(mActivity, R.color.colorAccent))
+                .setCenterText2(process + "%").setCenterText2FontSize(18).setCenterText2Color(Utils.getColor(mActivity, R.color.colorAccent));
+        pieChartRam.setPieChartData(pieChartData);
+        pieChartRam.setChartRotationEnabled(false);
+
+        textViewRamUsed.setText("Used: " + Formatter.formatFileSize(mActivity, used, Formatter.MAX_IS_MB));
+        textViewRamFree.setText("Free: " + Formatter.formatFileSize(mActivity, rams[1], Formatter.MAX_IS_MB));
+        textViewRamTotal.setText("Total: " + Formatter.formatFileSize(mActivity, rams[0], Formatter.MAX_IS_MB));
+    }
+}

@@ -1,0 +1,10 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">gmclibs</string>
+    <string name="gmclibs_byteShort">B</string>
+    <string name="gmclibs_kilobyteShort">kB</string>
+    <string name="gmclibs_megabyteShort">MB</string>
+    <string name="gmclibs_gigabyteShort">GB</string>
+    <string name="gmclibs_terabyteShort">TB</string>
+    <string name="gmclibs_petabyteShort">PB</string>
+    <string name="gmclibs_fileSizeSuffix"><xliff:g example="123" id="number">%1$s</xliff:g> <xliff:g example="MB" id="unit">%2$s</xliff:g></string>
+</resources>

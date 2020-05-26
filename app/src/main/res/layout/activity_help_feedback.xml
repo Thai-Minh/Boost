@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.HelpFeedbackActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/layoutAd"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/spacing_16"
+            android:text="@string/msg_feedback"
+            android:textColor="@color/gmc_color_white_1000" />
+
+        <EditText
+            android:id="@+id/editTextFeedbackDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_12"
+            android:layout_marginEnd="@dimen/spacing_16"
+            android:background="@drawable/bg_border_solid_grey_300"
+            android:gravity="top"
+            android:hint="@string/msg_feedback_hint"
+            android:inputType="textMultiLine"
+            android:lines="10"
+            android:padding="@dimen/spacing_16"
+            android:textColorHint="@color/gmc_color_grey_500" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_12"
+            android:layout_marginEnd="@dimen/spacing_16"
+            android:background="@drawable/bg_border_solid_grey_300"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_12"
+                android:text="@string/email"
+                android:textColor="@color/black_text" />
+
+            <EditText
+                android:id="@+id/editTextFeedbackEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_gmc_transparent"
+                android:hint="@string/leave_email"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:lines="1"
+                android:padding="@dimen/spacing_12"
+                android:singleLine="true"
+                android:textColor="@color/black_text" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbFeedbackBugs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bugs" />
+
+            <RadioButton
+                android:id="@+id/rbFeedbackSuggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_24"
+                android:layout_marginTop="@dimen/spacing_16"
+                android:layout_marginEnd="@dimen/spacing_24"
+                android:layout_marginBottom="@dimen/spacing_16"
+                android:checked="true"
+                android:text="@string/suggestion" />
+
+            <RadioButton
+                android:id="@+id/rbFeedbackOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/other" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSendFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_52"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginStart="@dimen/spacing_24"
+            android:layout_marginEnd="@dimen/spacing_24"
+            android:layout_marginBottom="@dimen/spacing_12"
+            android:text="@string/btn_send_feedback"
+            android:theme="@style/GmcButton.Blue" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/layout_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

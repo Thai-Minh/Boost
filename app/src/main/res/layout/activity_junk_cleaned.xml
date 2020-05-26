@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/spacing_24"
+    tools:context=".activity.JunkCleanedActivity">
+
+    <ImageView
+        android:layout_width="@dimen/spacing_72"
+        android:layout_height="@dimen/spacing_72"
+        android:contentDescription="@string/empty"
+        android:src="@drawable/ic_verified_user_white_24dp" />
+
+    <TextView
+        android:id="@+id/textViewCleaned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_24"
+        android:padding="@dimen/spacing_16"
+        android:text="@string/msg_cleaned_just_now"
+        android:textColor="@color/gmc_color_white_1000" />
+
+    <include layout="@layout/layout_rec_ad" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_8"
+            android:padding="@dimen/spacing_12"
+            android:text="@string/btn_done"
+            android:textSize="@dimen/font_h7"
+            android:theme="@style/GmcButton.White" />
+    </LinearLayout>
+
+</LinearLayout>
+

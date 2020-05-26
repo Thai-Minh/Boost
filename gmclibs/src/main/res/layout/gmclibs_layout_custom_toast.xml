@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/toast_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_20"
+        android:background="@drawable/gmclibs_shape_success"
+        android:paddingLeft="@dimen/spacing_16"
+        android:paddingTop="@dimen/spacing_8"
+        android:paddingRight="@dimen/spacing_24"
+        android:paddingBottom="@dimen/spacing_8">
+
+        <ImageView
+            android:id="@+id/toast_icon"
+            android:layout_width="@dimen/spacing_20"
+            android:layout_height="@dimen/spacing_20"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/gmclibs_ic_info_outline_black_24dp" />
+
+        <TextView
+            android:id="@+id/toast_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_12"
+            android:text="This is Custom Toast."
+            android:textColor="@color/gmc_color_white_1000" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="@dimen/spacing_30"
+        android:layout_height="@dimen/spacing_30"
+        android:layout_alignRight="@+id/toast_type"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/gmclibs_ic_android" />
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutOtherTools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gmc_color_white_1000"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_16"
+        android:text="@string/favouris_tool"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/font_subtitle1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewClose"
+        android:layout_width="@dimen/spacing_48"
+        android:layout_height="@dimen/spacing_48"
+        android:background="@color/gmc_color_white_1000"
+        android:contentDescription="@string/empty"
+        android:src="@drawable/ic_close_off_24dp"
+        android:padding="@dimen/spacing_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        layout="@layout/fragment_favourite_tools_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

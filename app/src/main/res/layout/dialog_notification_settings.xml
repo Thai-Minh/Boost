@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_16">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_info_outline_24dp"
+        android:drawablePadding="@dimen/spacing_16"
+        android:text="@string/title_notification_cleaner"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/font_subtitle1" />
+
+    <TextView
+        android:id="@+id/textViewDialogContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_12"
+        android:text="@string/msg_notification_cleaner_popup"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/font_normal"/>
+
+    <ImageView
+        android:id="@+id/imageViewDialogContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:contentDescription="@string/empty"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/img_notification_access" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonDeny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_gmc_transparent"
+            android:text="@string/btn_later"
+            android:textColor="@color/black_overlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonGrant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_gmc_transparent"
+            android:text="@string/btn_gotit_go"
+            android:textColor="@color/gmc_color_green_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

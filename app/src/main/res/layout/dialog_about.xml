@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gmc_color_white_1000"
+    android:orientation="vertical"
+    tools:mActivity=".activity.Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_36">
+
+        <ImageView
+            android:layout_width="@dimen/spacing_96"
+            android:layout_height="@dimen/spacing_96"
+            android:contentDescription="@string/empty"
+            android:src="@drawable/ic_iconsplash" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:text="@string/app_name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/font_h5"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/version"
+            android:textColor="@color/gmc_color_grey_700"
+            android:textSize="@dimen/font_caption" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:text="@string/msg_number_one"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="@dimen/font_caption" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_8">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/msg_copyright"
+            android:textColor="@color/gmc_color_grey_500"
+            android:textSize="@dimen/font_overline"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@color/color_gmc_transparent"
+            android:text="@string/btn_close"
+            android:textColor="@color/gmc_color_red_900" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnToolWifi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_wifi_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/wifi_mode"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolSound"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_volume_up_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/sound_mode_on"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolBluetooth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_bluetooth_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/bluetooth_mode"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolFlashlight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_highlight_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/flashlight_mode"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnToolAirplane"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_flight_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/airplane_mode"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolPower"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_power_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/power_mode"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolMobileData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_swap_vert_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/mobile_data"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolHotspot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_mobile_hotspot_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/mobile_hotspot"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnToolLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_location_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/location"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolNfc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_nfc_24dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/nfc"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolQRScanner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_qr_code_24"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/qr_scanner"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/btnToolCompass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_compass_24"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_16"
+            android:paddingLeft="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_4"
+            android:text="@string/compass"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/font_caption" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_16"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/empty"
+            android:src="@drawable/ic_sunny_light_24dp" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekbarBrightness"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_12"
+            android:max="255"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

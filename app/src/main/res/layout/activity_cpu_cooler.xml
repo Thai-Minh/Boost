@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:padding="4dp"
+    tools:context=".activity.CPUCoolerActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:mActivity=".activity.CPUCoolerActivity">
+
+        <LinearLayout
+            android:id="@+id/temperatureArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/bg_header_function"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/spacing_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/viewMiddle"
+                    android:layout_width="@dimen/spacing_72"
+                    android:layout_height="@dimen/spacing_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewTempC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/spacing_8"
+                    android:text="@string/temp_c"
+                    android:textColor="@color/gmc_color_grey_900"
+                    android:textSize="@dimen/font_subtitle1"
+                    app:layout_constraintEnd_toStartOf="@+id/viewMiddle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewTemperatureC"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/empty"
+                    android:textColor="@color/gmc_color_grey_900"
+                    android:textSize="@dimen/font_h4"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewTempC"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewTemperatureF"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/empty"
+                    android:textColor="@color/gmc_color_yellow_800"
+                    android:textSize="@dimen/font_h4"
+                    app:layout_constraintStart_toEndOf="@+id/viewMiddle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewTempF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/spacing_8"
+                    android:text="@string/temp_f"
+                    android:textColor="@color/gmc_color_yellow_800"
+                    android:textSize="@dimen/font_subtitle1"
+                    app:layout_constraintStart_toEndOf="@+id/textViewTemperatureF"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/spacing_6"
+                android:text="@string/cpu_temperature"
+                android:textColor="@color/gmc_color_grey_900"
+                android:textSize="@dimen/font_normal" />
+
+            <TextView
+                android:id="@+id/textViewTemperatureStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="4dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:text="@string/cpu_temperature_is"
+                android:textColor="@color/gmc_color_grey_900"
+                android:textSize="@dimen/font_caption" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewTempTitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="4dp"
+            android:alpha="0.8"
+            android:background="@drawable/bg_note_phoneboost"
+            android:paddingLeft="@dimen/spacing_44"
+            android:paddingTop="@dimen/spacing_4"
+            android:paddingRight="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_4"
+            android:text="@string/msg_cool_down"
+            android:textColor="@color/gmc_color_grey_900"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureArea" />
+
+        <ImageView
+            android:layout_width="@dimen/spacing_36"
+            android:layout_height="@dimen/spacing_36"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:contentDescription="@string/empty"
+            android:padding="4dp"
+            android:src="@drawable/ic_cooler_white_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureArea" />
+
+        <TextView
+            android:id="@+id/textViewTempTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:alpha="0.8"
+            android:background="@drawable/bg_note_phoneboost"
+            android:paddingLeft="@dimen/spacing_16"
+            android:paddingTop="@dimen/spacing_6"
+            android:paddingRight="@dimen/spacing_16"
+            android:paddingBottom="@dimen/spacing_6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTempTitle1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewRunningApps"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="6dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomArea"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTempTitle2" />
+
+        <LinearLayout
+            android:id="@+id/layoutAdRec"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_16"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTempTitle2" />
+
+        <LinearLayout
+            android:id="@+id/bottomArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btnCoolDown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_8"
+                android:layout_marginRight="@dimen/spacing_8"
+                android:layout_marginBottom="@dimen/spacing_8"
+                android:text="@string/btn_cool_down"
+                android:theme="@style/Button.White" />
+
+            <include layout="@layout/layout_ad" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutOptimize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_home"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageViewCooling"
+            android:layout_width="@dimen/spacing_96"
+            android:layout_height="@dimen/spacing_96"
+            android:layout_marginTop="@dimen/spacing_24"
+            android:contentDescription="@string/empty"
+            android:padding="@dimen/spacing_16"
+            android:src="@drawable/ic_cooler_white_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewCoolingMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/spacing_16"
+            android:text="@string/msg_your_phone_is_cooling"
+            android:textColor="@color/gmc_color_white_1000"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewCooling" />
+
+        <LinearLayout
+            android:id="@+id/layoutAdRec2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_16"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCoolingMsg" />
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_8"
+            android:padding="@dimen/spacing_12"
+            android:text="@string/btn_back"
+            android:textSize="@dimen/font_h7"
+            android:theme="@style/Button.White"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

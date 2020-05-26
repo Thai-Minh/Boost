@@ -1,0 +1,264 @@
+<resources>
+
+    <!-- Gmc Button -->
+    <style name="GmcButton" parent="@style/Widget.AppCompat.Button.Colored">
+    </style>
+
+    <style name="GmcButton.White" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_white_1000</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Button red -->
+    <style name="GmcButton.Red100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_red_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Red" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_red_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Red900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_red_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button pink -->
+    <style name="GmcButton.Pink100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_pink_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Pink" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_pink_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Pink900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_pink_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button purples -->
+    <style name="GmcButton.Purple100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_deep_purple_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Purple" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_deep_purple_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Purple900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_deep_purple_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button indigo -->
+    <style name="GmcButton.Indigo100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_indigo_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Indigo" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_indigo_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Indigo900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_indigo_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button blue -->
+    <style name="GmcButton.Blue100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_blue_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Blue" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_blue_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Blue900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_blue_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button light blue -->
+    <style name="GmcButton.LightBlue100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_light_blue_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.LightBlue" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_light_blue_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.LightBlue900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_light_blue_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button cyan -->
+    <style name="GmcButton.Cyan100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_cyan_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Cyan" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_cyan_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Cyan900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_cyan_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button teal -->
+    <style name="GmcButton.Teal100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_teal_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Teal" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_teal_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Teal900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_teal_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button green -->
+    <style name="GmcButton.Green100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_green_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Green" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_green_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Green900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_green_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button light green -->
+    <style name="GmcButton.LightGreen100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_light_green_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.LightGreen" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_light_green_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.LightGreen900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_light_green_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button lime -->
+    <style name="GmcButton.Lime100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_lime_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Lime" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_lime_A400</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Lime900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_lime_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button yellow -->
+    <style name="GmcButton.Yellow100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_yellow_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Yellow" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_yellow_A400</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Yellow900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_yellow_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button amber -->
+    <style name="GmcButton.Amber100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_amber_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Amber" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_amber_A400</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Amber900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_amber_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button orange -->
+    <style name="GmcButton.Orange100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_orange_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Orange" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_orange_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Orange900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_orange_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button deep orange -->
+    <style name="GmcButton.DeepOrange100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_deep_orange_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.DeepOrange" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_deep_orange_A400</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.DeepOrange900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_deep_orange_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button brown -->
+    <style name="GmcButton.Brown100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_brown_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Brown" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_brown_600</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Brown900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_brown_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button grey -->
+    <style name="GmcButton.Grey100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_grey_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.Grey" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_grey_600</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.Grey900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_grey_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button grey -->
+    <style name="GmcButton.BlueGrey100" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_blue_grey_100</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="GmcButton.BlueGrey" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_blue_grey_600</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="GmcButton.BlueGrey900" parent="GmcButton">
+        <item name="colorButtonNormal">@color/gmc_color_blue_grey_900</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>
