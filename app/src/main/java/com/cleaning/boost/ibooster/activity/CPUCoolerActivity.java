@@ -52,6 +52,7 @@ public class CPUCoolerActivity extends BaseActivity {
     //comment 2 CPU Activity
     private final CPUCoolerActivity mActivity = this;
 
+    //comment from develop3
     @BindView(R.id.textViewTemperatureC)
     TextView textViewTemperatureC;
     @BindView(R.id.textViewTemperatureF)
